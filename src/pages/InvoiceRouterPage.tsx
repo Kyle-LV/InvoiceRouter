@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import AppHeader from '../components/AppHeader'
+import ProgressSteps from '../components/ProgressSteps'
 import './InvoiceRouterPage.css'
 
 export default function InvoiceRouterPage() {
@@ -39,6 +40,7 @@ export default function InvoiceRouterPage() {
         <div className="invoice-router-page" ref={containerRef}>
             <section className="form-panel" ref={formPanelRef}>
                 <AppHeader />
+                <ProgressSteps activeStep={1} />
             </section>
             <div className="panel-resizer" ref={resizerRef} onMouseDown={onResizerMouseDown} />
             <section className="invoice-panel">
