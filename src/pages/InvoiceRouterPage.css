@@ -1,0 +1,18 @@
+.invoice-router-page {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.panel-resizer {
+    width: 5px;
+    cursor: col-resize;
+    background: #e2e8f0;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.panel-resizer:hover,
+.panel-resizer.resizing {
+    background: #94a3b8;
+}
