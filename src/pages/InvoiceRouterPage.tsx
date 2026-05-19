@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import AppHeader from '../components/AppHeader'
 import ProgressSteps from '../components/ProgressSteps'
+import PdfViewer from '../components/PdfViewer'
 import './InvoiceRouterPage.css'
 
 export default function InvoiceRouterPage() {
@@ -44,7 +45,7 @@ export default function InvoiceRouterPage() {
             </section>
             <div className="panel-resizer" ref={resizerRef} onMouseDown={onResizerMouseDown} />
             <section className="invoice-panel">
-                <p>PDF panel</p>
+                <PdfViewer pdfBase64={null} />
             </section>
         </div>
     )

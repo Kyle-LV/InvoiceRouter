@@ -11,6 +11,6 @@ describe('InvoiceRouterPage', () => {
 
     it('renders the PDF panel placeholder', () => {
         render(<InvoiceRouterPage />, { wrapper: MemoryRouter })
-        expect(screen.getByText('PDF panel')).toBeInTheDocument()
+        expect(screen.getByText('Select an invoice to view the PDF.')).toBeInTheDocument()
     })
 })
