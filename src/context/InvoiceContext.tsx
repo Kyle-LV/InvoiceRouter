@@ -13,7 +13,8 @@ interface InvoiceContextValue {
     refetch: () => void
 }
 
-const InvoiceContext = createContext<InvoiceContextValue | null>(null)
+// eslint-disable-next-line react-refresh/only-export-components
+export const InvoiceContext = createContext<InvoiceContextValue | null>(null)
 
 export function InvoiceProvider({ children }: { children: ReactNode }) {
     const { user } = useAuthContext()

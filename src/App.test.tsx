@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext'
 import InvoiceRouterPage from './pages/InvoiceRouterPage'
 import InvoiceRegisterPage from './pages/InvoiceRegisterPage'
 import type { ReactNode } from 'react'
+import { InvoiceProvider } from './context/InvoiceContext'
 
 const mockUser = {
     identityProvider: 'aad',
@@ -15,12 +16,26 @@ const mockUser = {
 }
 
 function withAuth(ui: ReactNode) {
-    vi.spyOn(global, 'fetch').mockResolvedValue(
-        new Response(JSON.stringify({ clientPrincipal: mockUser }), { status: 200 })
-    )
+    vi.spyOn(global, 'fetch').mockImplementation((url) => {
+        if (String(url).includes('auth/me')) {
+            return Promise.resolve(new Response(JSON.stringify({
+                clientPrincipal: mockUser
+            }), { status: 200 }))
+        }
+        return Promise.resolve(new Response(JSON.stringify({
+            Invoiced: [
+                {
+                    ID: '1', Title: 'INV-001', Vendor: 'Acme', CurrencyCode: 'GBP',
+                    Entity: { Value: 'UKLS' }
+                }
+            ]
+        }), { status: 200 }))
+    })
     return render(
         <MemoryRouter>
-            <AuthProvider>{ui}</AuthProvider>
+            <AuthProvider>
+                <InvoiceProvider>{ui}</InvoiceProvider>
+            </AuthProvider>
         </MemoryRouter>
     )
 }
