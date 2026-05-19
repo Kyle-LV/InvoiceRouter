@@ -20,6 +20,7 @@ export function useAuth(): UseAuthResult {
       })
       .catch((err) => {
         setUser(null);
+        throw new Error(err);
       })
       .finally(() => setLoading(false));
   }, []);

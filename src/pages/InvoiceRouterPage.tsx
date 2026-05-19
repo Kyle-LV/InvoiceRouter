@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import AppHeader from '../components/AppHeader'
 import './InvoiceRouterPage.css'
 
 export default function InvoiceRouterPage() {
@@ -37,7 +38,7 @@ export default function InvoiceRouterPage() {
     return (
         <div className="invoice-router-page" ref={containerRef}>
             <section className="form-panel" ref={formPanelRef}>
-                <p>Form panel</p>
+                <AppHeader />
             </section>
             <div className="panel-resizer" ref={resizerRef} onMouseDown={onResizerMouseDown} />
             <section className="invoice-panel">

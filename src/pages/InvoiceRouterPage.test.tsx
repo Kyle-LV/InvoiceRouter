@@ -4,9 +4,9 @@ import { describe, it, expect } from 'vitest'
 import InvoiceRouterPage from './InvoiceRouterPage'
 
 describe('InvoiceRouterPage', () => {
-    it('renders the form panel placeholder', () => {
+    it('renders the app header', () => {
         render(<InvoiceRouterPage />, { wrapper: MemoryRouter })
-        expect(screen.getByText('Form panel')).toBeInTheDocument()
+        expect(screen.getByText('Invoice Router')).toBeInTheDocument()
     })
 
     it('renders the PDF panel placeholder', () => {
