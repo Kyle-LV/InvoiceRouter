@@ -37,7 +37,7 @@ describe('InvoiceRouterPage', () => {
             <MemoryRouter>
                 <InvoiceContext.Provider value={{
                     invoices: [], loading:
-                        true, error: null, selectedInvoice: null, setSelectedInvoice: vi.fn()
+                        true, error: null, selectedInvoice: null, setSelectedInvoice: vi.fn(), refetch: vi.fn()
                 }}>
                     <InvoiceRouterPage />
                 </InvoiceContext.Provider>
