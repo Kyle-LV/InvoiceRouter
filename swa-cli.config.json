@@ -1,0 +1,10 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "invoice-router": {
+      "appLocation": ".",
+      "outputLocation": "dist",
+      "appDevserverUrl": "http://localhost:5173"
+    }
+  }
+}
