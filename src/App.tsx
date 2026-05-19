@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useEffect, type ReactNode } from 'react'
+import { useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { AuthProvider, useAuthContext } from './context/AuthContext'
+import { InvoiceProvider } from './context/InvoiceContext'
 import InvoiceRouterPage from './pages/InvoiceRouterPage'
 import InvoiceRegisterPage from './pages/InvoiceRegisterPage'
 
@@ -30,11 +32,13 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <AuthGuard>
-          <Routes>
-            <Route path="/" element={<InvoiceRouterPage />} />
-            <Route path="/register" element={<InvoiceRegisterPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <InvoiceProvider>
+            <Routes>
+              <Route path="/" element={<InvoiceRouterPage />} />
+              <Route path="/register" element={<InvoiceRegisterPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </InvoiceProvider>
         </AuthGuard>
       </AuthProvider>
     </BrowserRouter>
