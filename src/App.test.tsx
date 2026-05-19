@@ -1,10 +1,19 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
-import App from './App'
+import InvoiceRouterPage from './pages/InvoiceRouterPage'
+import InvoiceRegisterPage from './pages/InvoiceRegisterPage'
 
-describe('App', () => {
-    it('renders without crashing', () => {
-        render(<App />)
-        expect(document.body).toBeTruthy()
+describe('InvoiceRouterPage', () => {
+    it('renders the heading', () => {
+        render(<InvoiceRouterPage />, { wrapper: MemoryRouter })
+        expect(screen.getByText('Invoice Router')).toBeInTheDocument()
+    })
+})
+
+describe('InvoiceRegisterPage', () => {
+    it('renders the heading', () => {
+        render(<InvoiceRegisterPage />, { wrapper: MemoryRouter })
+        expect(screen.getByText('Invoice Register')).toBeInTheDocument()
     })
 })
